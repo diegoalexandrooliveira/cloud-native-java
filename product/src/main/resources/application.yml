@@ -19,3 +19,6 @@ management:
     web:
       exposure:
         include: '*'
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5

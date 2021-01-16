@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/${env}/products")
+@RequestMapping(path = "/api/products")
+//@RequestMapping(path = "/${env}/products")
 @RequiredArgsConstructor
 public class ProductController {
 
