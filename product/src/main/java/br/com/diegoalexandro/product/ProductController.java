@@ -19,16 +19,20 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) {
-        Optional<Product> optionalProduct = productRepository.getById(id);
+    public ResponseEntity<Product> getProduct(@PathVariable("id") String id) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
         return optionalProduct
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping
+    public ResponseEntity<List<Product>> findAll() {
+        return ResponseEntity.ok(productRepository.findAll());
+    }
+
     @GetMapping(path = "/category/{id}")
-    public ResponseEntity<List<Product>> getByCategory(@PathVariable("id") Long id) {
-        List<Product> products = productRepository.getByCategory(id);
-        return ResponseEntity.ok(products);
+    public ResponseEntity<List<Product>> getByCategory(@PathVariable("id") String id) {
+        return ResponseEntity.ok(productRepository.findByCategoryId(id));
     }
 }

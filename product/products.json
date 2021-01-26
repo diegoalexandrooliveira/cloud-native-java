@@ -1,0 +1,4 @@
+ { "_id": 1, "name": "Laranja", "category": { "id": 1, "name": "Alimentos" } }
+ { "_id": 2, "name": "Banana", "category": { "id": 1, "name": "Alimentos" } }
+ { "_id": 3, "name": "Morango", "category": { "id": 1, "name": "Alimentos" } }
+ { "_id": 4, "name": "IPhone", "category": { "id": 2, "name": "Eletrônicos" } }

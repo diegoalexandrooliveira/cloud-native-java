@@ -3,24 +3,13 @@ package br.com.diegoalexandro.product;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class Category {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+public class Category implements Serializable {
+    private String id;
 
     private String name;
-
-    public Category(@NonNull String name) {
-        this.name = name;
-    }
 }

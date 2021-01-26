@@ -4,21 +4,24 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
+//@Entity
+@Document(collection = "product")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class Product {
+public class Product implements Serializable {
 
     @Id
-    @GeneratedValue
-    private Long id;
+//    @GeneratedValue
+    private String id;
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     public Product(@NonNull String name, @NonNull Category category) {
