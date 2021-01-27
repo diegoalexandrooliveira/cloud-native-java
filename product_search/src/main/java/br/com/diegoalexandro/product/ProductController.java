@@ -1,5 +1,6 @@
 package br.com.diegoalexandro.product;
 
+import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,14 +29,13 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<Product>> findAll() {
-        return ResponseEntity.ok(productRepository.findAll());
+        return ResponseEntity.ok(Lists.newArrayList(productRepository.findAll()));
     }
 
     @GetMapping(path = "/category/{id}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable("id") String id) {
         return ResponseEntity.ok(productRepository.findByCategoryId(id));
     }
-
 
 
     @GetMapping(path = "/name/{name}")

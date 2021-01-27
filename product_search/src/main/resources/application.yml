@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: product-search
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: docker-cluster
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5
+server:
+  port: 8081

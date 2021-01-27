@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.io.Serializable;
 
-@Document
+@Document(indexName = "product", type = "external")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public class Product implements Serializable {
