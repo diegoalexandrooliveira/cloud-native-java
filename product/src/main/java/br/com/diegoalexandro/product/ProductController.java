@@ -2,11 +2,10 @@ package br.com.diegoalexandro.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +13,7 @@ import java.util.Optional;
 @RequestMapping(path = "/api/products")
 //@RequestMapping(path = "/${env}/products")
 @RequiredArgsConstructor
+@Validated
 public class ProductController {
 
     private final ProductRepository productRepository;
@@ -37,9 +37,28 @@ public class ProductController {
     }
 
 
-
     @GetMapping(path = "/name/{name}")
     public ResponseEntity<List<Product>> getByName(@PathVariable("name") String name) {
         return ResponseEntity.ok(productRepository.findByName(name));
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> insertProduct(@RequestBody @Valid NewProductRequest newProductRequest) {
+        Product product = productRepository.save(newProductRequest.toModel());
+        return ResponseEntity.ok(product);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable("id") String id, @RequestBody @Valid UpdateProductRequest updateProductRequest) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
+        product = updateProductRequest.toModel(product);
+        productRepository.save(product);
+        return ResponseEntity.ok(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id) {
+        productRepository.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }

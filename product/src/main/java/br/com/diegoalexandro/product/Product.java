@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,6 +23,12 @@ public class Product implements Serializable {
     private Category category;
 
     public Product(@NonNull String name, @NonNull Category category) {
+        this.name = name;
+        this.category = category;
+        this.id = new ObjectId().toString();
+    }
+
+    public void update(String name, Category category){
         this.name = name;
         this.category = category;
     }

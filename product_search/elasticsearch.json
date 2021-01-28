@@ -1,11 +1,11 @@
 {"index":{"_id":"601084dd28cf25cf7c633e31"}}
-{"id":"601084dd28cf25cf7c633e31","name":"Laranja","category":{"_id":1,"name":"Alimentos"}}
+{"id":"601084dd28cf25cf7c633e31","name":"Laranja","category":{"id":1,"name":"Alimentos"}}
 
 {"index":{"_id":"601084dd28cf25cf7c633e32"}}
-{"id":"601084dd28cf25cf7c633e32","name":"Morango","category":{"_id":1,"name":"Alimentos"}}
+{"id":"601084dd28cf25cf7c633e32","name":"Morango","category":{"id":1,"name":"Alimentos"}}
 
 {"index":{"_id":"601084dd28cf25cf7c633e33"}}
-{"id":"601084dd28cf25cf7c633e33","name":"IPhone","category":{"_id":2,"name":"Eletrônicos"}}
+{"id":"601084dd28cf25cf7c633e33","name":"IPhone","category":{"id":2,"name":"Eletrônicos"}}
 
 {"index":{"_id":"601084dd28cf25cf7c633e34"}}
-{"id":"601084dd28cf25cf7c633e34","name":"Banana","category":{"_id":1,"name":"Alimentos"}}
+{"id":"601084dd28cf25cf7c633e34","name":"Banana","category":{"id":1,"name":"Alimentos"}}
